@@ -3,111 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Fixora helps you solve everyday problems with free online tools, calculators and planners.">
-<title>Fixora - Your Problems, Our Solutions</title>
+<meta name="description" content="Fixora provides free everyday tools, money calculators, document generators and practical problem-solving guides.">
+<meta name="theme-color" content="#09111f">
+<title>Fixora — Your Problems. Our Solutions.</title>
 
 <style>
+:root{
+--bg:#09111f;
+--panel:#131f33;
+--panel2:#1b2b43;
+--green:#63e6b2;
+--white:#f7f9fc;
+--muted:#aab8ca;
+--border:#293b54;
+}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
 font-family:Arial,sans-serif;
-background:#0b1020;
-color:white;
+background:var(--bg);
+color:var(--white);
 line-height:1.6;
 }
 header{
-padding:22px 7%;
+padding:18px 6%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #263149;
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+background:#09111fee;
+z-index:10;
 }
-.logo{font-size:27px;font-weight:bold;color:#65e6b2}
+.logo{font-size:28px;font-weight:800;color:var(--green)}
 .logo span{color:white}
-nav a{color:#ddd;text-decoration:none;margin-left:15px;font-size:14px}
+nav a{
+color:var(--muted);
+text-decoration:none;
+margin-left:16px;
+font-size:14px;
+}
 .hero{
 text-align:center;
-padding:75px 20px 55px;
-background:radial-gradient(circle at top,#203c4d,#0b1020 65%);
+padding:75px 18px 65px;
+background:radial-gradient(ellipse at top,#244b50,#09111f 70%);
 }
 .badge{
-color:#65e6b2;
-border:1px solid #347c68;
-padding:7px 14px;
+color:var(--green);
+border:1px solid #357c68;
+padding:7px 15px;
 border-radius:30px;
 font-size:12px;
 }
-.hero h1{font-size:clamp(35px,8vw,58px);line-height:1.15;margin:25px 0}
-.hero h1 span{color:#65e6b2}
-.hero p{color:#b8c2d4;max-width:550px;margin:0 auto 25px}
+.hero h1{
+font-size:clamp(38px,8vw,65px);
+line-height:1.12;
+margin:27px 0;
+}
+.hero h1 span{color:var(--green)}
+.hero p{
+color:var(--muted);
+max-width:600px;
+margin:0 auto 27px;
+}
 .search{
-width:100%;max-width:550px;padding:17px;
-border-radius:12px;border:1px solid #394761;
-background:#172238;color:white;font-size:16px;
+width:100%;
+max-width:570px;
+padding:18px;
+border-radius:12px;
+border:1px solid var(--border);
+background:var(--panel);
+color:white;
+font-size:16px;
 outline:none;
 }
-.search:focus{border-color:#65e6b2}
-.section{padding:45px 7%}
-.section h2{font-size:27px;margin-bottom:8px}
-.subtitle{color:#aab6ca;margin-bottom:25px}
+.search:focus{border-color:var(--green)}
+.section{padding:45px 6%}
+.section h2{font-size:27px}
+.subtitle{color:var(--muted);margin-bottom:25px}
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:17px;
 }
 .card{
-background:#151f33;
-border:1px solid #293750;
-padding:23px;
+background:var(--panel);
+border:1px solid var(--border);
 border-radius:15px;
+padding:22px;
 transition:.2s;
 }
-.card:hover{transform:translateY(-4px);border-color:#65e6b2}
-.icon{font-size:30px}
+.card:hover{
+transform:translateY(-4px);
+border-color:var(--green);
+}
+.icon{font-size:32px}
 .card h3{margin:10px 0}
-.card p{color:#aab6ca;font-size:14px;min-height:45px}
+.card p{font-size:14px;color:var(--muted);min-height:44px}
 button{
-background:#65e6b2;
-color:#092219;
 border:0;
-padding:12px 18px;
-border-radius:8px;
+background:var(--green);
+color:#092219;
+padding:12px 17px;
+border-radius:9px;
 font-weight:bold;
 cursor:pointer;
-margin-top:15px;
+margin-top:13px;
 }
-.card button{width:100%}
 button:hover{opacity:.85}
+.card button{width:100%}
+.save{
+background:var(--panel2);
+color:var(--green);
+border:1px solid var(--border);
+}
 .toolbox{
 display:none;
-background:#151f33;
-padding:25px;
-border-radius:15px;
 margin-top:25px;
-border:1px solid #65e6b2;
+padding:25px;
+background:var(--panel);
+border:1px solid var(--green);
+border-radius:15px;
+scroll-margin-top:90px;
 }
-.toolbox input,.toolbox textarea{
+.toolbox h2{margin-bottom:10px}
+.toolbox p{color:var(--muted);margin:8px 0}
+.toolbox input,.toolbox textarea,.toolbox select{
 width:100%;
 padding:13px;
-margin:9px 0;
-background:#0b1020;
-border:1px solid #394761;
+margin:8px 0;
 border-radius:8px;
+border:1px solid var(--border);
+background:var(--bg);
 color:white;
 font-size:16px;
 }
-.result{color:#65e6b2;font-weight:bold;margin-top:15px}
+.toolbox textarea{min-height:120px}
+.result{
+margin-top:16px;
+padding:13px;
+border-radius:9px;
+background:#102d2a;
+color:var(--green);
+white-space:pre-wrap;
+overflow-wrap:anywhere;
+}
+.result:empty{display:none}
+.secondary{background:var(--panel2);color:white}
+.task{
+padding:10px;
+border-bottom:1px solid var(--border);
+display:flex;
+gap:10px;
+align-items:center;
+}
+.task input{width:auto;margin:0}
+.task span{flex:1;overflow-wrap:anywhere}
 footer{
-text-align:center;
 padding:35px 15px;
-border-top:1px solid #263149;
-color:#aab6ca;
+text-align:center;
+border-top:1px solid var(--border);
+color:var(--muted);
 font-size:13px;
 }
-footer strong{color:#65e6b2}
+footer a{color:var(--green);margin:8px}
+.hidden{display:none!important}
 @media(max-width:500px){
-nav a{margin-left:7px;font-size:12px}
+header{padding:15px 5%}
+nav a{margin-left:9px;font-size:12px}
 .section{padding:35px 5%}
-header{padding:18px 5%}
+.hero{padding-top:60px}
 }
 </style>
 </head>
@@ -118,6 +184,7 @@ header{padding:18px 5%}
 <div class="logo">Fixora<span>.</span></div>
 <nav>
 <a href="#tools">Tools</a>
+<a href="#saved">Saved</a>
 <a href="#about">About</a>
 </nav>
 </header>
@@ -125,67 +192,135 @@ header{padding:18px 5%}
 <section class="hero">
 <span class="badge">✦ YOUR FREE EVERYDAY HELPER</span>
 <h1>Your Problems.<br><span>Our Solutions.</span></h1>
-<p>Stop wasting time searching for answers. Find simple, free tools to solve everyday problems in seconds.</p>
-
-<input class="search" id="search" type="text"
-placeholder="What do you need help with? 🔍"
-oninput="filterTools()">
+<p>Less searching. More solving. Discover free tools that make everyday life easier.</p>
+<input class="search" id="search" placeholder="What problem can we help you solve? 🔍" oninput="filterTools()">
 </section>
 
 <section class="section" id="tools">
 <h2>Explore Free Tools ✨</h2>
-<p class="subtitle">Simple solutions for everyday challenges.</p>
+<p class="subtitle">Choose a problem. Find a solution.</p>
 
 <div class="grid" id="grid">
 
-<div class="card" data-name="budget money finance">
+<div class="card" data-name="budget money expenses income finance">
 <div class="icon">💰</div>
 <h3>Budget Planner</h3>
-<p>Find out how much money you have left after expenses.</p>
-<button onclick="openTool('budget')">Try for free →</button>
+<p>Calculate your monthly income and expenses.</p>
+<button onclick="openTool('budget')">Open tool →</button>
+<button class="save" onclick="saveTool('budget','Budget Planner')">☆ Save tool</button>
 </div>
 
-<div class="card" data-name="percentage calculator maths">
-<div class="icon">🧮</div>
-<h3>Percentage Calculator</h3>
-<p>Calculate percentages quickly and easily.</p>
-<button onclick="openTool('percentage')">Try for free →</button>
-</div>
-
-<div class="card" data-name="bill split friends money">
-<div class="icon">🧾</div>
-<h3>Bill Splitter</h3>
-<p>Split restaurant bills and shared expenses fairly.</p>
-<button onclick="openTool('bill')">Try for free →</button>
-</div>
-
-<div class="card" data-name="savings money goal">
+<div class="card" data-name="savings money goals">
 <div class="icon">🎯</div>
 <h3>Savings Calculator</h3>
-<p>Calculate how long it takes to reach your savings goal.</p>
-<button onclick="openTool('savings')">Try for free →</button>
+<p>Find out how long it takes to reach your goal.</p>
+<button onclick="openTool('savings')">Open tool →</button>
+<button class="save" onclick="saveTool('savings','Savings Calculator')">☆ Save tool</button>
 </div>
 
-<div class="card" data-name="word counter text writing">
+<div class="card" data-name="bill split restaurant friends">
+<div class="icon">🧾</div>
+<h3>Bill Splitter</h3>
+<p>Divide shared expenses fairly.</p>
+<button onclick="openTool('bill')">Open tool →</button>
+<button class="save" onclick="saveTool('bill','Bill Splitter')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="percentage maths calculator">
+<div class="icon">🧮</div>
+<h3>Percentage Calculator</h3>
+<p>Calculate percentages in seconds.</p>
+<button onclick="openTool('percentage')">Open tool →</button>
+<button class="save" onclick="saveTool('percentage','Percentage Calculator')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="discount shopping sale price">
+<div class="icon">🏷️</div>
+<h3>Discount Calculator</h3>
+<p>Discover the final price after a discount.</p>
+<button onclick="openTool('discount')">Open tool →</button>
+<button class="save" onclick="saveTool('discount','Discount Calculator')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="tip restaurant gratuity">
+<div class="icon">🍽️</div>
+<h3>Tip Calculator</h3>
+<p>Calculate restaurant tips and total bills.</p>
+<button onclick="openTool('tip')">Open tool →</button>
+<button class="save" onclick="saveTool('tip','Tip Calculator')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="word counter text writing characters">
 <div class="icon">📝</div>
 <h3>Word Counter</h3>
 <p>Count words and characters in your text.</p>
-<button onclick="openTool('words')">Try for free →</button>
+<button onclick="openTool('words')">Open tool →</button>
+<button class="save" onclick="saveTool('words','Word Counter')">☆ Save tool</button>
 </div>
 
-<div class="card" data-name="checklist planning tasks">
+<div class="card" data-name="password generator security">
+<div class="icon">🔐</div>
+<h3>Password Generator</h3>
+<p>Create a random password on your device.</p>
+<button onclick="openTool('password')">Open tool →</button>
+<button class="save" onclick="saveTool('password','Password Generator')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="cv resume letter document generator">
+<div class="icon">📄</div>
+<h3>Letter Creator</h3>
+<p>Create a professional letter in seconds.</p>
+<button onclick="openTool('letter')">Open tool →</button>
+<button class="save" onclick="saveTool('letter','Letter Creator')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="travel holiday trip packing planner">
+<div class="icon">✈️</div>
+<h3>Travel Planner</h3>
+<p>Calculate your trip budget and plan expenses.</p>
+<button onclick="openTool('travel')">Open tool →</button>
+<button class="save" onclick="saveTool('travel','Travel Planner')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="task planner checklist daily">
 <div class="icon">✅</div>
 <h3>Task Planner</h3>
-<p>Create a simple checklist for your daily tasks.</p>
-<button onclick="openTool('tasks')">Try for free →</button>
+<p>Organize your daily tasks and priorities.</p>
+<button onclick="openTool('tasks')">Open tool →</button>
+<button class="save" onclick="saveTool('tasks','Task Planner')">☆ Save tool</button>
+</div>
+
+<div class="card" data-name="date days calculator time">
+<div class="icon">📅</div>
+<h3>Days Calculator</h3>
+<p>Calculate the days between two dates.</p>
+<button onclick="openTool('dates')">Open tool →</button>
+<button class="save" onclick="saveTool('dates','Days Calculator')">☆ Save tool</button>
 </div>
 
 </div>
 
 <div class="toolbox" id="toolbox">
-<h2 id="toolTitle">Your Tool</h2>
+<h2 id="toolTitle">Tool</h2>
 <div id="toolContent"></div>
-<button onclick="closeTool()" style="background:#34435c;color:white">Close tool</button>
+<div class="result" id="answer" aria-live="polite"></div>
+<button class="secondary" onclick="closeTool()">Close tool</button>
+</div>
+</section>
+
+<section class="section" id="saved">
+<h2>⭐ Your Saved Tools</h2>
+<p class="subtitle">Keep your favourite tools close.</p>
+<div id="savedList" class="grid"></div>
+</section>
+
+<section class="section">
+<h2>🧠 Problem Finder</h2>
+<p class="subtitle">Tell us what's troubling you. We'll suggest a starting point.</p>
+<div class="toolbox" style="display:block;margin:0">
+<textarea id="problem" placeholder="Example: I earn €2,000 but struggle to save money."></textarea>
+<button onclick="findSolution()">Find my solution →</button>
+<div class="result" id="solution"></div>
 </div>
 </section>
 
@@ -195,172 +330,323 @@ oninput="filterTools()">
 <div class="grid">
 <div class="card">
 <div class="icon">⚡</div>
-<h3>Fast</h3>
-<p>Get useful answers without wasting time.</p>
+<h3>Simple</h3>
+<p>Useful tools without complicated steps.</p>
 </div>
 <div class="card">
 <div class="icon">🆓</div>
 <h3>Free</h3>
-<p>Use our everyday tools without paying.</p>
+<p>Access our basic tools without paying.</p>
 </div>
 <div class="card">
 <div class="icon">📱</div>
 <h3>Mobile Friendly</h3>
-<p>Get things done from your phone or computer.</p>
+<p>Use Fixora on your phone or computer.</p>
 </div>
 </div>
 </section>
 
 <footer>
-<p><strong>FIXORA</strong> — Your Problems, Our Solutions.</p>
-<p>Simple tools. Smarter everyday life.</p>
+<p><strong style="color:var(--green)">FIXORA.</strong> Your Problems. Our Solutions.</p>
+<p>Free everyday tools to make life easier.</p>
+<p><a href="mailto:hello@fixora.example">Contact</a> · <a href="privacy.html">Privacy</a></p>
 <p>© 2026 Fixora. All rights reserved.</p>
 </footer>
 
 <script>
-function openTool(type){
-const box=document.getElementById('toolbox');
-const title=document.getElementById('toolTitle');
 const content=document.getElementById('toolContent');
+const box=document.getElementById('toolbox');
+const answer=document.getElementById('answer');
+
+function field(id,placeholder,type='number'){
+return `<input id="${id}" type="${type}" placeholder="${placeholder}">`;
+}
+function action(label,fn){
+return `<button onclick="${fn}">${label}</button>`;
+}
+function openTool(type){
+answer.textContent='';
 box.style.display='block';
+let html='';
+let title='';
 
-if(type==='budget'){
-title.innerText='💰 Budget Planner';
-content.innerHTML=`
-<p>Enter your monthly income and expenses.</p>
-<input type="number" id="income" placeholder="Monthly income (€)">
-<input type="number" id="expenses" placeholder="Monthly expenses (€)">
-<button onclick="calculateBudget()">Calculate budget</button>
-<div class="result" id="answer"></div>`;
+const tools={
+budget:['💰 Budget Planner',
+`<p>Enter your monthly income and expenses.</p>
+${field('income','Monthly income (€)')}
+${field('expenses','Monthly expenses (€)')}
+${action('Calculate budget','budgetCalc()')}`],
+
+savings:['🎯 Savings Calculator',
+`<p>Plan your savings goal.</p>
+${field('goal','Savings goal (€)')}
+${field('saved','Already saved (€)')}
+${field('monthly','Monthly savings (€)')}
+${action('Calculate','savingsCalc()')}`],
+
+bill:['🧾 Bill Splitter',
+`<p>Split a bill equally between people.</p>
+${field('bill','Total bill (€)')}
+${field('people','Number of people')}
+${action('Split bill','billCalc()')}`],
+
+percentage:['🧮 Percentage Calculator',
+`<p>Find a percentage of a number.</p>
+${field('percent','Percentage (%)')}
+${field('number','Your number')}
+${action('Calculate','percentCalc()')}`],
+
+discount:['🏷️ Discount Calculator',
+`<p>Calculate a sale price.</p>
+${field('price','Original price (€)')}
+${field('discount','Discount (%)')}
+${action('Calculate price','discountCalc()')}`],
+
+tip:['🍽️ Tip Calculator',
+`<p>Calculate your tip.</p>
+${field('billTip','Bill amount (€)')}
+${field('tipRate','Tip percentage (%)')}
+${action('Calculate tip','tipCalc()')}`],
+
+words:['📝 Word Counter',
+`<p>Enter your text below.</p>
+<textarea id="wordText" placeholder="Start typing..." oninput="wordCalc()"></textarea>`],
+
+password:['🔐 Password Generator',
+`<p>Choose password length.</p>
+${field('passLength','Length (8–64)')}
+${action('Generate password','passwordCalc()')}`],
+
+letter:['📄 Letter Creator',
+`<p>Fill in the details to create a basic professional letter.</p>
+<select id="letterType">
+<option>General enquiry</option>
+<option>Job application</option>
+<option>Resignation</option>
+<option>Complaint</option>
+<option>Cancellation request</option>
+</select>
+${field('yourName','Your name','text')}
+${field('recipient','Recipient name or company','text')}
+${field('subject','Subject','text')}
+<textarea id="letterMessage" placeholder="Write your message..."></textarea>
+${action('Create letter','letterCalc()')}`],
+
+travel:['✈️ Travel Budget Planner',
+`<p>Estimate your trip expenses.</p>
+${field('transport','Transport (€)')}
+${field('stay','Accommodation (€)')}
+${field('food','Food (€)')}
+${field('activities','Activities (€)')}
+${action('Calculate trip cost','travelCalc()')}`],
+
+tasks:['✅ Task Planner',
+`<p>Add tasks and tick them when complete. Tasks are saved on this device.</p>
+${field('newTask','Enter a task','text')}
+${action('Add task','addTask()')}
+<div id="taskList"></div>`],
+
+dates:['📅 Days Calculator',
+`<p>Calculate the number of days between two dates.</p>
+${field('dateOne','Start date','date')}
+${field('dateTwo','End date','date')}
+${action('Calculate days','dateCalc()')}`]
+};
+
+[title,html]=tools[type];
+document.getElementById('toolTitle').textContent=title;
+content.innerHTML=html;
+box.scrollIntoView({behavior:'smooth',block:'start'});
+
+if(type==='tasks')renderTasks();
 }
 
-if(type==='percentage'){
-title.innerText='🧮 Percentage Calculator';
-content.innerHTML=`
-<p>Find a percentage of any number.</p>
-<input type="number" id="percent" placeholder="Percentage (%)">
-<input type="number" id="number" placeholder="Your number">
-<button onclick="calculatePercent()">Calculate</button>
-<div class="result" id="answer"></div>`;
+function val(id){
+return Number(document.getElementById(id).value);
 }
-
-if(type==='bill'){
-title.innerText='🧾 Bill Splitter';
-content.innerHTML=`
-<p>Split a bill equally between people.</p>
-<input type="number" id="billAmount" placeholder="Total bill (€)">
-<input type="number" id="people" placeholder="Number of people">
-<button onclick="splitBill()">Split bill</button>
-<div class="result" id="answer"></div>`;
+function raw(id){
+return document.getElementById(id).value.trim();
 }
-
-if(type==='savings'){
-title.innerText='🎯 Savings Calculator';
-content.innerHTML=`
-<p>Calculate how long it takes to reach your goal.</p>
-<input type="number" id="goal" placeholder="Savings goal (€)">
-<input type="number" id="saved" placeholder="Already saved (€)">
-<input type="number" id="monthly" placeholder="Monthly savings (€)">
-<button onclick="calculateSavings()">Calculate</button>
-<div class="result" id="answer"></div>`;
+function show(message){
+answer.textContent=message;
 }
-
-if(type==='words'){
-title.innerText='📝 Word Counter';
-content.innerHTML=`
-<p>Paste or type your text below.</p>
-<textarea id="text" rows="6" placeholder="Write something..." oninput="countWords()"></textarea>
-<div class="result" id="answer">0 words · 0 characters</div>`;
+function valid(ids){
+return ids.every(id=>raw(id)!==''&&Number.isFinite(val(id)));
 }
-
-if(type==='tasks'){
-title.innerText='✅ Task Planner';
-content.innerHTML=`
-<p>Add tasks and tick them when completed.</p>
-<input id="taskInput" placeholder="Enter a task">
-<button onclick="addTask()">Add task</button>
-<div id="taskList"></div>`;
+function budgetCalc(){
+if(!valid(['income','expenses'])||val('income')<0||val('expenses')<0)return show('Please enter valid amounts.');
+let remaining=val('income')-val('expenses');
+show('Monthly money remaining: €'+remaining.toFixed(2)+(remaining<0?'\nYour expenses exceed your income.':'\nGreat! Review your savings goals.'));
 }
+function savingsCalc(){
+if(!valid(['goal','saved','monthly'])||val('goal')<0||val('saved')<0||val('monthly')<=0)return show('Enter a valid goal, current savings and positive monthly savings.');
+let months=Math.max(0,Math.ceil((val('goal')-val('saved'))/val('monthly')));
+show(months===0?'You have already reached your goal!':'You need approximately '+months+' months to reach your goal.');
+}
+function billCalc(){
+if(!valid(['bill','people'])||val('bill')<0||val('people')<=0||!Number.isInteger(val('people')))return show('Enter a valid bill and whole number of people.');
+show('Each person pays €'+(val('bill')/val('people')).toFixed(2));
+}
+function percentCalc(){
+if(!valid(['percent','number']))return show('Please enter both numbers.');
+show(val('percent')+'% of '+val('number')+' = '+(val('percent')*val('number')/100).toFixed(2));
+}
+function discountCalc(){
+if(!valid(['price','discount'])||val('price')<0||val('discount')<0||val('discount')>100)return show('Enter a valid price and discount from 0 to 100%.');
+let saving=val('price')*val('discount')/100;
+show('You save €'+saving.toFixed(2)+'\nFinal price: €'+(val('price')-saving).toFixed(2));
+}
+function tipCalc(){
+if(!valid(['billTip','tipRate'])||val('billTip')<0||val('tipRate')<0)return show('Enter valid amounts.');
+let tip=val('billTip')*val('tipRate')/100;
+show('Tip: €'+tip.toFixed(2)+'\nTotal: €'+(val('billTip')+tip).toFixed(2));
+}
+function wordCalc(){
+let t=document.getElementById('wordText').value;
+let words=t.trim()?t.trim().split(/\s+/).length:0;
+show('Words: '+words+'\nCharacters: '+t.length+'\nCharacters without spaces: '+t.replace(/\s/g,'').length);
+}
+function passwordCalc(){
+if(!raw('passLength')||!Number.isInteger(val('passLength'))||val('passLength')<8||val('passLength')>64)return show('Choose a length from 8 to 64.');
+let chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*?';
+let result='';
+let bytes=new Uint32Array(val('passLength'));
+crypto.getRandomValues(bytes);
+for(let n of bytes)result+=chars[n%chars.length];
+show('Generated password:\n'+result+'\nKeep it private and save it securely.');
+}
+function letterCalc(){
+if(!raw('yourName')||!raw('recipient')||!raw('subject')||!raw('letterMessage'))return show('Please complete all fields.');
+let text=`${raw('yourName')}
 
-box.scrollIntoView({behavior:'smooth'});
+Date: ${new Date().toLocaleDateString()}
+
+To: ${raw('recipient')}
+
+Subject: ${raw('subject')}
+
+Dear ${raw('recipient')},
+
+${raw('letterMessage')}
+
+Kind regards,
+${raw('yourName')}`;
+show(text);
+}
+function travelCalc(){
+let ids=['transport','stay','food','activities'];
+if(!valid(ids)||ids.some(id=>val(id)<0))return show('Enter valid non-negative expenses in every field.');
+let total=ids.reduce((sum,id)=>sum+val(id),0);
+show('Estimated trip cost: €'+total.toFixed(2));
+}
+function dateCalc(){
+let a=raw('dateOne'),b=raw('dateTwo');
+if(!a||!b)return show('Choose both dates.');
+let start=new Date(a+'T00:00:00Z'),end=new Date(b+'T00:00:00Z');
+let days=Math.round(Math.abs(end-start)/86400000);
+show('There are '+days+' days between these dates.');
 }
 
 function closeTool(){
-document.getElementById('toolbox').style.display='none';
-}
-
-function value(id){
-return Number(document.getElementById(id).value);
-}
-
-function calculateBudget(){
-let income=value('income'),expenses=value('expenses');
-if(income<0||expenses<0||!document.getElementById('income').value||!document.getElementById('expenses').value){
-answer.innerText='Please enter valid amounts.';
-return;
-}
-answer.innerText='Money remaining: €'+(income-expenses).toFixed(2);
-}
-
-function calculatePercent(){
-let p=value('percent'),n=value('number');
-if(!document.getElementById('percent').value||!document.getElementById('number').value||p<0){
-answer.innerText='Please enter valid numbers.';
-return;
-}
-answer.innerText=p+'% of '+n+' = '+(p*n/100).toFixed(2);
-}
-
-function splitBill(){
-let b=value('billAmount'),p=value('people');
-if(b<0||p<=0||!Number.isInteger(p)){
-answer.innerText='Enter a valid bill and number of people.';
-return;
-}
-answer.innerText='Each person pays €'+(b/p).toFixed(2);
-}
-
-function calculateSavings(){
-let g=value('goal'),s=value('saved'),m=value('monthly');
-if(g<=s||s<0||m<=0){
-answer.innerText='Enter a goal above your current savings and a positive monthly saving.';
-return;
-}
-answer.innerText='Time needed: '+Math.ceil((g-s)/m)+' months.';
-}
-
-function countWords(){
-let t=document.getElementById('text').value.trim();
-let words=t?t.split(/\s+/).length:0;
-answer.innerText=words+' words · '+document.getElementById('text').value.length+' characters';
-}
-
-function addTask(){
-let input=document.getElementById('taskInput');
-let task=input.value.trim();
-if(!task)return;
-let item=document.createElement('div');
-let checkbox=document.createElement('input');
-checkbox.type='checkbox';
-checkbox.style.width='auto';
-checkbox.style.marginRight='10px';
-let label=document.createElement('span');
-label.textContent=task;
-checkbox.onchange=()=>label.style.textDecoration=checkbox.checked?'line-through':'none';
-item.style.marginTop='12px';
-item.append(checkbox,label);
-document.getElementById('taskList').append(item);
-input.value='';
+box.style.display='none';
 }
 
 function filterTools(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.card[data-name]').forEach(card=>{
-let text=(card.innerText+' '+card.dataset.name).toLowerCase();
-card.style.display=text.includes(q)?'block':'none';
+let q=raw('search').toLowerCase();
+document.querySelectorAll('[data-name]').forEach(card=>{
+card.classList.toggle('hidden',!card.dataset.name.includes(q)&&!card.innerText.toLowerCase().includes(q));
 });
 }
+
+function findSolution(){
+let text=raw('problem').toLowerCase();
+let suggestions=[];
+if(!text)return document.getElementById('solution').textContent='Please describe your problem first.';
+if(/save|money|budget|expense|debt|income|spend/.test(text))suggestions.push('Try the Budget Planner and Savings Calculator.');
+if(/letter|resign|complaint|cancel|job|application|cv/.test(text))suggestions.push('Try the Letter Creator.');
+if(/bill|split|restaurant|share/.test(text))suggestions.push('Try the Bill Splitter.');
+if(/travel|trip|holiday|vacation|flight/.test(text))suggestions.push('Try the Travel Budget Planner.');
+if(/word|writing|essay|character|text/.test(text))suggestions.push('Try the Word Counter.');
+if(/task|organ|busy|plan|checklist/.test(text))suggestions.push('Try the Task Planner.');
+if(/discount|sale|price|percent/.test(text))suggestions.push('Try the Discount or Percentage Calculator.');
+if(!suggestions.length)suggestions.push('Try describing whether your problem is about money, documents, travel, work or daily planning.');
+document.getElementById('solution').textContent=suggestions.join('\n\n')+'\n\nThese are suggestions from Fixora’s built-in keyword matching, not personalised professional advice.';
+}
+
+function saveTool(id,name){
+let saved=JSON.parse(localStorage.getItem('fixoraSaved')||'[]');
+if(saved.some(x=>x.id===id))return alert('This tool is already saved.');
+saved.push({id,name});
+localStorage.setItem('fixoraSaved',JSON.stringify(saved));
+renderSaved();
+alert('Tool saved on this device!');
+}
+function renderSaved(){
+let list=document.getElementById('savedList');
+let saved=JSON.parse(localStorage.getItem('fixoraSaved')||'[]');
+list.innerHTML='';
+if(!saved.length){
+list.textContent='No saved tools yet. Tap ☆ Save tool on any tool to add it here.';
+return;
+}
+saved.forEach(item=>{
+let card=document.createElement('div');
+card.className='card';
+let title=document.createElement('h3');
+title.textContent='⭐ '+item.name;
+let open=document.createElement('button');
+open.textContent='Open tool';
+open.onclick=()=>openTool(item.id);
+let remove=document.createElement('button');
+remove.className='secondary';
+remove.textContent='Remove';
+remove.onclick=()=>{
+let next=saved.filter(x=>x.id!==item.id);
+localStorage.setItem('fixoraSaved',JSON.stringify(next));
+renderSaved();
+};
+card.append(title,open,remove);
+list.append(card);
+});
+}
+
+function getTasks(){
+return JSON.parse(localStorage.getItem('fixoraTasks')||'[]');
+}
+function renderTasks(){
+let list=document.getElementById('taskList');
+if(!list)return;
+list.innerHTML='';
+getTasks().forEach((task,index)=>{
+let row=document.createElement('div');
+row.className='task';
+let check=document.createElement('input');
+check.type='checkbox';
+check.checked=task.done;
+check.onchange=()=>{
+let tasks=getTasks();
+tasks[index].done=check.checked;
+localStorage.setItem('fixoraTasks',JSON.stringify(tasks));
+renderTasks();
+};
+row.append(check,label,remove);
+list.append(row);
+});
+}
+function addTask(){
+let text=raw('newTask');
+if(!text)return show('Enter a task first.');
+let tasks=getTasks();
+tasks.push({text,done:false});
+localStorage.setItem('fixoraTasks',JSON.stringify(tasks));
+document.getElementById('newTask').value='';
+show('Task added!');
+renderTasks();
+}
+
+renderSaved();
 </script>
 
 </body>
 </html>
+
